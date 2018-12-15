@@ -17,6 +17,12 @@
 		4CE3F8B421C56B1100CB6EBD /* Observable+HTTPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8B321C56B1100CB6EBD /* Observable+HTTPTests.swift */; };
 		4CE3F8B721C5711A00CB6EBD /* URLSessionHttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8B621C5711A00CB6EBD /* URLSessionHttpClientTests.swift */; };
 		4CE3F8BB21C572E000CB6EBD /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8BA21C572E000CB6EBD /* TestModel.swift */; };
+		4CE3F8C421C57B2700CB6EBD /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8C321C57B2700CB6EBD /* Breed.swift */; };
+		4CE3F8C621C57BBF00CB6EBD /* AsyncGetGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8C521C57BBF00CB6EBD /* AsyncGetGateway.swift */; };
+		4CE3F8C821C57BDC00CB6EBD /* HttpGetGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8C721C57BDC00CB6EBD /* HttpGetGateway.swift */; };
+		4CE3F8CA21C57CF700CB6EBD /* BreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8C921C57CF700CB6EBD /* BreedsViewController.swift */; };
+		4CE3F8CE21C57D3B00CB6EBD /* HttpGetGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8CD21C57D3B00CB6EBD /* HttpGetGateway.swift */; };
+		4CE3F8D021C57D7C00CB6EBD /* MockHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8CF21C57D7C00CB6EBD /* MockHttpClient.swift */; };
 		B4C692624524C4D60BBD6A3D /* Pods_DogsChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105683F08174AF2B1068A6A2 /* Pods_DogsChallengeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +52,12 @@
 		4CE3F8B321C56B1100CB6EBD /* Observable+HTTPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+HTTPTests.swift"; sourceTree = "<group>"; };
 		4CE3F8B621C5711A00CB6EBD /* URLSessionHttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpClientTests.swift; sourceTree = "<group>"; };
 		4CE3F8BA21C572E000CB6EBD /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
+		4CE3F8C321C57B2700CB6EBD /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
+		4CE3F8C521C57BBF00CB6EBD /* AsyncGetGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncGetGateway.swift; sourceTree = "<group>"; };
+		4CE3F8C721C57BDC00CB6EBD /* HttpGetGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpGetGateway.swift; sourceTree = "<group>"; };
+		4CE3F8C921C57CF700CB6EBD /* BreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewController.swift; sourceTree = "<group>"; };
+		4CE3F8CD21C57D3B00CB6EBD /* HttpGetGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpGetGateway.swift; sourceTree = "<group>"; };
+		4CE3F8CF21C57D7C00CB6EBD /* MockHttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHttpClient.swift; sourceTree = "<group>"; };
 		5E165D885580A29A506A8736 /* Pods-DogsChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogsChallenge.release.xcconfig"; path = "Target Support Files/Pods-DogsChallenge/Pods-DogsChallenge.release.xcconfig"; sourceTree = "<group>"; };
 		6D75C2A5D21059A64BBDD692 /* Pods-DogsChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogsChallenge.debug.xcconfig"; path = "Target Support Files/Pods-DogsChallenge/Pods-DogsChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		6E65009533DEEA1AEF4C8D68 /* Pods_DogsChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogsChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +107,7 @@
 		4CE3F88421C562CC00CB6EBD /* DogsChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				4CE3F8BE21C5772F00CB6EBD /* Scenes */,
 				4CE3F8AF21C56A1600CB6EBD /* Extensions */,
 				4CE3F8A921C5653800CB6EBD /* Core */,
 				4CE3F8A821C564B300CB6EBD /* Base */,
@@ -107,9 +120,10 @@
 		4CE3F89921C562CD00CB6EBD /* DogsChallengeTests */ = {
 			isa = PBXGroup;
 			children = (
-				4CE3F8B821C572BD00CB6EBD /* Utils */,
-				4CE3F8B521C5711100CB6EBD /* Core */,
+				4CE3F8CB21C57D2500CB6EBD /* Scenes */,
 				4CE3F8B221C56B0200CB6EBD /* Extensions */,
+				4CE3F8B521C5711100CB6EBD /* Core */,
+				4CE3F8B821C572BD00CB6EBD /* Mocks */,
 				4CE3F89C21C562CD00CB6EBD /* Info.plist */,
 			);
 			path = DogsChallengeTests;
@@ -168,16 +182,18 @@
 			isa = PBXGroup;
 			children = (
 				4CE3F8B621C5711A00CB6EBD /* URLSessionHttpClientTests.swift */,
+				4CE3F8CD21C57D3B00CB6EBD /* HttpGetGateway.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		4CE3F8B821C572BD00CB6EBD /* Utils */ = {
+		4CE3F8B821C572BD00CB6EBD /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
 				4CE3F8BA21C572E000CB6EBD /* TestModel.swift */,
+				4CE3F8CF21C57D7C00CB6EBD /* MockHttpClient.swift */,
 			);
-			path = Utils;
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		4CE3F8BC21C5768700CB6EBD /* Network */ = {
@@ -185,8 +201,42 @@
 			children = (
 				4CE3F8AA21C5653E00CB6EBD /* HttpClient.swift */,
 				4CE3F8AC21C566C600CB6EBD /* URLSessionHttpClient.swift */,
+				4CE3F8C521C57BBF00CB6EBD /* AsyncGetGateway.swift */,
+				4CE3F8C721C57BDC00CB6EBD /* HttpGetGateway.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		4CE3F8BE21C5772F00CB6EBD /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				4CE3F8BF21C57AB300CB6EBD /* Breeds */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		4CE3F8BF21C57AB300CB6EBD /* Breeds */ = {
+			isa = PBXGroup;
+			children = (
+				4CE3F8C321C57B2700CB6EBD /* Breed.swift */,
+				4CE3F8C921C57CF700CB6EBD /* BreedsViewController.swift */,
+			);
+			path = Breeds;
+			sourceTree = "<group>";
+		};
+		4CE3F8CB21C57D2500CB6EBD /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				4CE3F8CC21C57D2900CB6EBD /* Breeds */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		4CE3F8CC21C57D2900CB6EBD /* Breeds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Breeds;
 			sourceTree = "<group>";
 		};
 		5B81C157CFE3581053D6A9BF /* Pods */ = {
@@ -415,6 +465,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CE3F8C621C57BBF00CB6EBD /* AsyncGetGateway.swift in Sources */,
+				4CE3F8CA21C57CF700CB6EBD /* BreedsViewController.swift in Sources */,
+				4CE3F8C821C57BDC00CB6EBD /* HttpGetGateway.swift in Sources */,
+				4CE3F8C421C57B2700CB6EBD /* Breed.swift in Sources */,
 				4CE3F8B121C56A2700CB6EBD /* Observable+HTTP.swift in Sources */,
 				4CE3F8AD21C566C600CB6EBD /* URLSessionHttpClient.swift in Sources */,
 				4CE3F8AB21C5653E00CB6EBD /* HttpClient.swift in Sources */,
@@ -427,6 +481,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CE3F8BB21C572E000CB6EBD /* TestModel.swift in Sources */,
+				4CE3F8D021C57D7C00CB6EBD /* MockHttpClient.swift in Sources */,
+				4CE3F8CE21C57D3B00CB6EBD /* HttpGetGateway.swift in Sources */,
 				4CE3F8B421C56B1100CB6EBD /* Observable+HTTPTests.swift in Sources */,
 				4CE3F8B721C5711A00CB6EBD /* URLSessionHttpClientTests.swift in Sources */,
 			);

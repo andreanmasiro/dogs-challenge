@@ -8,7 +8,7 @@ target 'DogsChallenge' do
   # Pods for DogsChallenge
   pod 'RxSwift', '4.4.0'  
   pod 'RxCocoa', '4.4.0'
-  
+
   target 'DogsChallengeTests' do
     inherit! :search_paths
     # Pods for testing
