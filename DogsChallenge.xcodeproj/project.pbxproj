@@ -21,7 +21,7 @@
 		4CE3F8C621C57BBF00CB6EBD /* AsyncGetGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8C521C57BBF00CB6EBD /* AsyncGetGateway.swift */; };
 		4CE3F8C821C57BDC00CB6EBD /* HttpGetGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8C721C57BDC00CB6EBD /* HttpGetGateway.swift */; };
 		4CE3F8CA21C57CF700CB6EBD /* BreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8C921C57CF700CB6EBD /* BreedsViewController.swift */; };
-		4CE3F8CE21C57D3B00CB6EBD /* HttpGetGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8CD21C57D3B00CB6EBD /* HttpGetGateway.swift */; };
+		4CE3F8CE21C57D3B00CB6EBD /* HttpGetGatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8CD21C57D3B00CB6EBD /* HttpGetGatewayTests.swift */; };
 		4CE3F8D021C57D7C00CB6EBD /* MockHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8CF21C57D7C00CB6EBD /* MockHttpClient.swift */; };
 		4CE3F8D521C580BB00CB6EBD /* SingleSectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8D421C580BB00CB6EBD /* SingleSectionDataSource.swift */; };
 		4CE3F8D721C5834900CB6EBD /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8D621C5834900CB6EBD /* UITableViewExtensions.swift */; };
@@ -59,7 +59,7 @@
 		4CE3F8C521C57BBF00CB6EBD /* AsyncGetGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncGetGateway.swift; sourceTree = "<group>"; };
 		4CE3F8C721C57BDC00CB6EBD /* HttpGetGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpGetGateway.swift; sourceTree = "<group>"; };
 		4CE3F8C921C57CF700CB6EBD /* BreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewController.swift; sourceTree = "<group>"; };
-		4CE3F8CD21C57D3B00CB6EBD /* HttpGetGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpGetGateway.swift; sourceTree = "<group>"; };
+		4CE3F8CD21C57D3B00CB6EBD /* HttpGetGatewayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpGetGatewayTests.swift; sourceTree = "<group>"; };
 		4CE3F8CF21C57D7C00CB6EBD /* MockHttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHttpClient.swift; sourceTree = "<group>"; };
 		4CE3F8D421C580BB00CB6EBD /* SingleSectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSectionDataSource.swift; sourceTree = "<group>"; };
 		4CE3F8D621C5834900CB6EBD /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				4CE3F8B621C5711A00CB6EBD /* URLSessionHttpClientTests.swift */,
-				4CE3F8CD21C57D3B00CB6EBD /* HttpGetGateway.swift */,
+				4CE3F8CD21C57D3B00CB6EBD /* HttpGetGatewayTests.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -502,7 +502,7 @@
 			files = (
 				4CE3F8BB21C572E000CB6EBD /* TestModel.swift in Sources */,
 				4CE3F8D021C57D7C00CB6EBD /* MockHttpClient.swift in Sources */,
-				4CE3F8CE21C57D3B00CB6EBD /* HttpGetGateway.swift in Sources */,
+				4CE3F8CE21C57D3B00CB6EBD /* HttpGetGatewayTests.swift in Sources */,
 				4CE3F8B421C56B1100CB6EBD /* Observable+HTTPTests.swift in Sources */,
 				4CE3F8B721C5711A00CB6EBD /* URLSessionHttpClientTests.swift in Sources */,
 			);
