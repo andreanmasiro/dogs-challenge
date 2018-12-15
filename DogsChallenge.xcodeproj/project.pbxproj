@@ -13,7 +13,7 @@
 		4CE3F8AB21C5653E00CB6EBD /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8AA21C5653E00CB6EBD /* HttpClient.swift */; };
 		4CE3F8AD21C566C600CB6EBD /* URLSessionHttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8AC21C566C600CB6EBD /* URLSessionHttpClient.swift */; };
 		4CE3F8B121C56A2700CB6EBD /* RxExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8B021C56A2700CB6EBD /* RxExtensions.swift */; };
-		4CE3F8B421C56B1100CB6EBD /* Observable+HTTPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8B321C56B1100CB6EBD /* Observable+HTTPTests.swift */; };
+		4CE3F8B421C56B1100CB6EBD /* RxExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8B321C56B1100CB6EBD /* RxExtensionsTests.swift */; };
 		4CE3F8B721C5711A00CB6EBD /* URLSessionHttpClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8B621C5711A00CB6EBD /* URLSessionHttpClientTests.swift */; };
 		4CE3F8BB21C572E000CB6EBD /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8BA21C572E000CB6EBD /* TestModel.swift */; };
 		4CE3F8C421C57B2700CB6EBD /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8C321C57B2700CB6EBD /* Breed.swift */; };
@@ -53,7 +53,7 @@
 		4CE3F8AA21C5653E00CB6EBD /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		4CE3F8AC21C566C600CB6EBD /* URLSessionHttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpClient.swift; sourceTree = "<group>"; };
 		4CE3F8B021C56A2700CB6EBD /* RxExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxExtensions.swift; sourceTree = "<group>"; };
-		4CE3F8B321C56B1100CB6EBD /* Observable+HTTPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+HTTPTests.swift"; sourceTree = "<group>"; };
+		4CE3F8B321C56B1100CB6EBD /* RxExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxExtensionsTests.swift; sourceTree = "<group>"; };
 		4CE3F8B621C5711A00CB6EBD /* URLSessionHttpClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHttpClientTests.swift; sourceTree = "<group>"; };
 		4CE3F8BA21C572E000CB6EBD /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		4CE3F8C321C57B2700CB6EBD /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 		4CE3F8B221C56B0200CB6EBD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4CE3F8B321C56B1100CB6EBD /* Observable+HTTPTests.swift */,
+				4CE3F8B321C56B1100CB6EBD /* RxExtensionsTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -523,7 +523,7 @@
 				4CE3F8BB21C572E000CB6EBD /* TestModel.swift in Sources */,
 				4CE3F8D021C57D7C00CB6EBD /* MockHttpClient.swift in Sources */,
 				4CE3F8CE21C57D3B00CB6EBD /* HttpGetGatewayTests.swift in Sources */,
-				4CE3F8B421C56B1100CB6EBD /* Observable+HTTPTests.swift in Sources */,
+				4CE3F8B421C56B1100CB6EBD /* RxExtensionsTests.swift in Sources */,
 				4CE3F8B721C5711A00CB6EBD /* URLSessionHttpClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
