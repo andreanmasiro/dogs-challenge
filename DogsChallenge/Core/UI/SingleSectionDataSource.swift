@@ -1,4 +1,6 @@
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class SingleSectionDataSource<Model, Cell: UITableViewCell>: NSObject, UITableViewDataSource, UITableViewDelegate {
     typealias CellConfigurator = (Cell, Model) -> Void
@@ -15,6 +17,8 @@ final class SingleSectionDataSource<Model, Cell: UITableViewCell>: NSObject, UIT
 
         super.init()
 
+        tableView.dataSource = self
+        tableView.delegate = self
         registerCell(in: tableView)
     }
 
@@ -38,5 +42,11 @@ final class SingleSectionDataSource<Model, Cell: UITableViewCell>: NSObject, UIT
 
     func reload() {
         tableView.reloadData()
+    }
+
+    var modelsSetter: ([Model]) -> Void {
+        return { [weak self] in
+            self?.models = $0
+        }
     }
 }
