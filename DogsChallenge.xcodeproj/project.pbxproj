@@ -143,8 +143,7 @@
 		4CE3F8A921C5653800CB6EBD /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				4CE3F8AA21C5653E00CB6EBD /* HttpClient.swift */,
-				4CE3F8AC21C566C600CB6EBD /* URLSessionHttpClient.swift */,
+				4CE3F8BC21C5768700CB6EBD /* Network */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -179,6 +178,15 @@
 				4CE3F8BA21C572E000CB6EBD /* TestModel.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		4CE3F8BC21C5768700CB6EBD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4CE3F8AA21C5653E00CB6EBD /* HttpClient.swift */,
+				4CE3F8AC21C566C600CB6EBD /* URLSessionHttpClient.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		5B81C157CFE3581053D6A9BF /* Pods */ = {
