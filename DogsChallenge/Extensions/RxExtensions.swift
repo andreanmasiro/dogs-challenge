@@ -26,6 +26,7 @@ extension Observable where E == Data {
 extension PrimitiveSequence where Trait == SingleTrait {
     func trackLoading(binder: Binder<Bool>) -> Single<Element> {
         return self.do(onSuccess: { _ in binder.onNext(false) },
+                       onError: { _ in binder.onNext(false) },
                        onSubscribed: { binder.onNext(true) })
     }
 }
