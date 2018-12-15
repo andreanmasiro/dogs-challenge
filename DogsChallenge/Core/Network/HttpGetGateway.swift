@@ -5,7 +5,9 @@ class HttpGetGateway<Model: Decodable>: GetGateway {
     private let endpoint: URL
     private let scheduler: SchedulerType
 
-    init(client: HttpClient, endpoint: URL, scheduler: SchedulerType = MainScheduler.instance) {
+    init(client: HttpClient = URLSessionHttpClient(),
+         endpoint: URL,
+         scheduler: SchedulerType = MainScheduler.instance) {
         self.client = client
         self.endpoint = endpoint
         self.scheduler = scheduler
