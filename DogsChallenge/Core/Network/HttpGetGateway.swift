@@ -1,6 +1,6 @@
 import RxSwift
 
-class HttpGetGateway<Model: Decodable>: GetGateway {
+final class HttpGetGateway<Model: Decodable> {
     private let client: HttpClient
     private let endpoint: URL
     private let scheduler: SchedulerType
