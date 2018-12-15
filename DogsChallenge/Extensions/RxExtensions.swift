@@ -1,5 +1,6 @@
 import Foundation
 import RxSwift
+import RxCocoa
 
 extension Observable where E == (response: HTTPURLResponse, data: Data) {
     func validate(statusCodes: Range<Int>) -> Observable<Data> {
@@ -19,5 +20,12 @@ extension Observable where E == Data {
         return map {
             return try jsonDecoder.decode(T.self, from: $0)
         }
+    }
+}
+
+extension PrimitiveSequence where Trait == SingleTrait {
+    func trackLoading(binder: Binder<Bool>) -> Single<Element> {
+        return self.do(onSuccess: { _ in binder.onNext(false) },
+                       onSubscribed: { binder.onNext(true) })
     }
 }
