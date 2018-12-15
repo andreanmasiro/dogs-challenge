@@ -71,10 +71,9 @@
 		4CE3F88421C562CC00CB6EBD /* DogsChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				4CE3F88521C562CC00CB6EBD /* AppDelegate.swift */,
-				4CE3F88C21C562CD00CB6EBD /* Assets.xcassets */,
-				4CE3F88E21C562CD00CB6EBD /* LaunchScreen.storyboard */,
-				4CE3F89121C562CD00CB6EBD /* Info.plist */,
+				4CE3F8A821C564B300CB6EBD /* Base */,
+				4CE3F8A621C5649E00CB6EBD /* Resources */,
+				4CE3F8A521C5649500CB6EBD /* Application */,
 			);
 			path = DogsChallenge;
 			sourceTree = "<group>";
@@ -85,6 +84,31 @@
 				4CE3F89C21C562CD00CB6EBD /* Info.plist */,
 			);
 			path = DogsChallengeTests;
+			sourceTree = "<group>";
+		};
+		4CE3F8A521C5649500CB6EBD /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				4CE3F88521C562CC00CB6EBD /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		4CE3F8A621C5649E00CB6EBD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4CE3F88C21C562CD00CB6EBD /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4CE3F8A821C564B300CB6EBD /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4CE3F88E21C562CD00CB6EBD /* LaunchScreen.storyboard */,
+				4CE3F89121C562CD00CB6EBD /* Info.plist */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
