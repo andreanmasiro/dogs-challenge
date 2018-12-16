@@ -41,11 +41,15 @@ final class BreedsViewController: ViewController {
     private func fetchBreeds() {
         gateway.get()
             .trackLoading(binder: rx.loading)
+            .map { $0.map(BreedViewModel.init) }
             .subscribe(onSuccess: dataSource.modelsSetter)
             .disposed(by: disposeBag)
     }
 
-    private func breedCellConfigurator(cell: BreedTableViewCell, breed: Breed) {
-        cell.textLabel?.text = breed.name
+    private func breedCellConfigurator(cell: BreedTableViewCell, breedViewModel: BreedViewModel) {
+        cell.textLabel?.text = breedViewModel.name
+        cell.accessoryType = .disclosureIndicator
+        cell.favoriteButton.setImage(breedViewModel.favoriteIcon, for: .normal)
+        cell.favoriteButton.tintColor = breedViewModel.favoriteIconColor
     }
 }

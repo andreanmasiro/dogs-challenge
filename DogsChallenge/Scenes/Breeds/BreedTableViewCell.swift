@@ -3,7 +3,8 @@ import UIKit
 final class BreedTableViewCell: UITableViewCell {
     lazy var favoriteButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(named: ""), for: .normal)
+        button.tintColor = .accessoryGray
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
@@ -24,7 +25,9 @@ final class BreedTableViewCell: UITableViewCell {
     private func remakeFavoriteButtonConstraints() {
         favoriteButton.removeConstraints()
         activate(
-            favoriteButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: Metrics.margin),
+            favoriteButton.trailingAnchor
+                .constraint(equalTo: accessoryView?.leadingAnchor ?? contentView.trailingAnchor,
+                            constant: -Metrics.margin),
             favoriteButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             favoriteButton.widthAnchor.constraint(equalToConstant: Metrics.normal),
             favoriteButton.heightAnchor.constraint(equalToConstant: Metrics.normal)
