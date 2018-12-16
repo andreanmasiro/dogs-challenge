@@ -30,6 +30,7 @@
 		4CE3F8E521C6C93400CB6EBD /* BreedsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8E421C6C93400CB6EBD /* BreedsViewControllerTests.swift */; };
 		4CE3F8E721C6C97200CB6EBD /* MockBreedsGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8E621C6C97200CB6EBD /* MockBreedsGateway.swift */; };
 		4CE3F8E921C6CB9600CB6EBD /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8E821C6CB9600CB6EBD /* UIViewExtensions.swift */; };
+		4CE3F8ED21C6CD3200CB6EBD /* SingleSectionDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8EC21C6CD3200CB6EBD /* SingleSectionDataSourceTests.swift */; };
 		EAE191246CF06426C34A1A7C /* Pods_DogsChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772BB0562D559AC9CEE4E6E3 /* Pods_DogsChallengeTests.framework */; };
 		ED2017D7557285F1049C1A68 /* Pods_DogsChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE51007010EB87ECED69511 /* Pods_DogsChallenge.framework */; };
 /* End PBXBuildFile section */
@@ -73,6 +74,7 @@
 		4CE3F8E421C6C93400CB6EBD /* BreedsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewControllerTests.swift; sourceTree = "<group>"; };
 		4CE3F8E621C6C97200CB6EBD /* MockBreedsGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockBreedsGateway.swift; sourceTree = "<group>"; };
 		4CE3F8E821C6CB9600CB6EBD /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		4CE3F8EC21C6CD3200CB6EBD /* SingleSectionDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSectionDataSourceTests.swift; sourceTree = "<group>"; };
 		4EE51007010EB87ECED69511 /* Pods_DogsChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogsChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FCEF84E0C6858919BF9A74 /* Pods-DogsChallenge.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogsChallenge.test.xcconfig"; path = "Target Support Files/Pods-DogsChallenge/Pods-DogsChallenge.test.xcconfig"; sourceTree = "<group>"; };
 		772BB0562D559AC9CEE4E6E3 /* Pods_DogsChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogsChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,8 +215,8 @@
 		4CE3F8B521C5711100CB6EBD /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				4CE3F8B621C5711A00CB6EBD /* URLSessionHttpClientTests.swift */,
-				4CE3F8CD21C57D3B00CB6EBD /* HttpGetGatewayTests.swift */,
+				4CE3F8EB21C6CD2800CB6EBD /* UI */,
+				4CE3F8EA21C6CD2000CB6EBD /* Network */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -288,6 +290,23 @@
 				4CE3F8DB21C588FB00CB6EBD /* Links.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		4CE3F8EA21C6CD2000CB6EBD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4CE3F8B621C5711A00CB6EBD /* URLSessionHttpClientTests.swift */,
+				4CE3F8CD21C57D3B00CB6EBD /* HttpGetGatewayTests.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4CE3F8EB21C6CD2800CB6EBD /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				4CE3F8EC21C6CD3200CB6EBD /* SingleSectionDataSourceTests.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		5B81C157CFE3581053D6A9BF /* Pods */ = {
@@ -532,6 +551,7 @@
 			files = (
 				4CE3F8BB21C572E000CB6EBD /* TestModel.swift in Sources */,
 				4CE3F8D021C57D7C00CB6EBD /* MockHttpClient.swift in Sources */,
+				4CE3F8ED21C6CD3200CB6EBD /* SingleSectionDataSourceTests.swift in Sources */,
 				4CE3F8E721C6C97200CB6EBD /* MockBreedsGateway.swift in Sources */,
 				4CE3F8CE21C57D3B00CB6EBD /* HttpGetGatewayTests.swift in Sources */,
 				4CE3F8B421C56B1100CB6EBD /* RxExtensionsTests.swift in Sources */,
