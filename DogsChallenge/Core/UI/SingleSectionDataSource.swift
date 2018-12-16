@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class SingleSectionDataSource<Model, Cell: UITableViewCell>: NSObject, UITableViewDataSource, UITableViewDelegate {
+final class SingleSectionDataSource<Model, Cell: TableViewCell>: NSObject, UITableViewDataSource, UITableViewDelegate {
     typealias CellConfigurator = (Cell, Model) -> Void
     typealias SelectionCallback = (Model) -> Void
 
@@ -61,5 +61,9 @@ final class SingleSectionDataSource<Model, Cell: UITableViewCell>: NSObject, UIT
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelect?(models[indexPath.row])
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Cell.preferredHeight
     }
 }

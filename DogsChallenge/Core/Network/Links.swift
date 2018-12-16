@@ -1,14 +1,15 @@
 import Foundation
 
-struct Link: Decodable {
-    let href: URL
+struct Links: Decodable {
+    let links: [URL]
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
-        href = try container.decode(URL.self)
+        let strings = try container.decode([String].self)
+        links = strings.compactMap(URL.init(string:))
     }
 
     enum CodingKeys: String, CodingKey {
-        case href
+        case links
     }
 }

@@ -1,12 +1,18 @@
 import UIKit
 import RxSwift
+import RxCocoa
 import Kingfisher
 
 final class ImagesViewController: ViewController {
     typealias Builder = (String, ImagesGateway) -> ImagesViewController
 
     private let disposeBag = DisposeBag()
-    private let tableView = UITableView()
+    private let tableView: UITableView = {
+        let view = UITableView()
+        view.separatorStyle = .none
+        view.allowsSelection = false
+        return view
+    }()
     lazy var dataSource = SingleSectionDataSource(tableView: tableView, cellConfigurator: imageCellConfigurator)
 
     private let gateway: ImagesGateway
@@ -45,12 +51,17 @@ final class ImagesViewController: ViewController {
 
     private func fetchBreeds() {
         gateway.get()
-            .trackLoading(binder: rx.loading)
-            .subscribe(onSuccess: dataSource.modelsSetter)
+            .do(onSuccess: { _ in self.setState(.idle)},
+                onSubscribed: { self.setState(.loading) },
+                onDispose: { self.setState(.idle) })
+            .trackError({ self.setState(.error($0)) }, retryWhen: self.retryObservable)
+            .subscribe(onSuccess: { [dataSource] in
+                dataSource.modelsSetter($0.links)
+            })
             .disposed(by: disposeBag)
     }
 
-    private func imageCellConfigurator(cell: UITableViewCell, link: Link) {
-        cell.imageView?.kf.setImage(with: link.href)
+    private func imageCellConfigurator(cell: ImageTableViewCell, link: URL) {
+        cell.imageImageView.kf.setImage(with: link)
     }
 }

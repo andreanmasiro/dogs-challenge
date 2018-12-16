@@ -1,6 +1,6 @@
 import UIKit
 
-final class BreedTableViewCell: UITableViewCell {
+final class BreedTableViewCell: TableViewCell {
     lazy var favoriteButton: UIButton = {
         let button = UIButton()
         button.tintColor = .accessoryGray

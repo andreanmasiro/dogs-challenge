@@ -48,13 +48,24 @@ final class BreedsViewController: ViewController {
         tableView.frame = view.bounds
     }
 
+    override func setState(_ state: ViewControllerState) {
+        super.setState(state)
+        switch state {
+        case .idle: tableView.isHidden = false
+        default: tableView.isHidden = true
+        }
+    }
+
     override func onLoading(_ isLoading: Bool) {
         tableView.isHidden = isLoading
     }
 
     private func fetchBreeds() {
         gateway.get()
-            .trackLoading(binder: rx.loading)
+            .do(onSuccess: { _ in self.setState(.idle)},
+                onSubscribed: { self.setState(.loading) },
+                onDispose: { self.setState(.idle) })
+            .trackError({ self.setState(.error($0)) }, retryWhen: self.retryObservable)
             .map { $0.map(BreedViewModel.init) }
             .subscribe(onSuccess: dataSource.modelsSetter)
             .disposed(by: disposeBag)

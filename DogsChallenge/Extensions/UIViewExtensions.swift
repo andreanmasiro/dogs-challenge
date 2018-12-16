@@ -23,4 +23,9 @@ extension UIView {
     func removeConstraints() {
         removeConstraints(constraints)
     }
+
+    func setCornerRadius(_ cornerRadius: CGFloat) {
+        layer.masksToBounds = true
+        layer.cornerRadius = cornerRadius
+    }
 }

@@ -5,3 +5,7 @@ extension UITableViewCell {
         return String(describing: self)
     }
 }
+
+protocol HeightDefinableView: class {
+    static var preferredHeight: CGFloat { get }
+}
