@@ -1,4 +1,5 @@
 PODS:
+  - Kingfisher (5.0.0)
   - Nimble (7.3.1)
   - RxAtomic (4.4.0)
   - RxBlocking (4.4.0):
@@ -10,6 +11,7 @@ PODS:
     - RxAtomic (~> 4.4)
 
 DEPENDENCIES:
+  - Kingfisher (= 5.0.0)
   - Nimble (= 7.3.1)
   - RxBlocking (= 4.4.0)
   - RxCocoa (= 4.4.0)
@@ -17,6 +19,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Kingfisher
     - Nimble
     - RxAtomic
     - RxBlocking
@@ -24,12 +27,13 @@ SPEC REPOS:
     - RxSwift
 
 SPEC CHECKSUMS:
+  Kingfisher: 2b0dd651e4fe5a07305b8242fde56f8e2d410f58
   Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxBlocking: 138ad53217434444d6eeeb4fb406a45431d92e31
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
 
-PODFILE CHECKSUM: 9b7248e8c93128cd081d9ef304af2f615a04d118
+PODFILE CHECKSUM: 144a7e5d97fa7eb337bfddc1fb33999c65cedcd3
 
 COCOAPODS: 1.6.0.beta.1

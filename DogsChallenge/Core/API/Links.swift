@@ -5,6 +5,6 @@ extension URL {
 
     static let breeds = baseURL.appendingPathComponent("breeds")
     static func images(_ breedName: String) -> URL {
-        return baseURL.appendingPathComponent("/api/\(breedName)/images")
+        return baseURL.appendingPathComponent("\(breedName)/images")
     }
 }

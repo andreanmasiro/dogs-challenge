@@ -12,4 +12,8 @@ extension UITableView {
 
         return cell
     }
+
+    func deselect(animated: Bool) {
+        indexPathForSelectedRow.map { deselectRow(at: $0, animated: animated) }
+    }
 }

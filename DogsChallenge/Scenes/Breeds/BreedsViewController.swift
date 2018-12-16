@@ -2,11 +2,20 @@ import UIKit
 import RxSwift
 
 final class BreedsViewController: ViewController {
+    typealias Builder = (BreedsGateway, FavoriteBreedsRepository) -> BreedsViewController
+
     private let disposeBag = DisposeBag()
     private let tableView = UITableView()
-    lazy var dataSource = SingleSectionDataSource(tableView: tableView, cellConfigurator: breedCellConfigurator)
-
     private let gateway: BreedsGateway
+
+    lazy var dataSource = SingleSectionDataSource(tableView: tableView,
+                                                  cellConfigurator: breedCellConfigurator,
+                                                  didSelect: didSelect)
+
+    private var didSelectSubject = PublishSubject<BreedViewModel>()
+    var didSelect: Observable<BreedViewModel> {
+        return didSelectSubject.asObservable()
+    }
 
     init(gateway: BreedsGateway = HttpGetGateway<Breeds>(endpoint: .breeds),
          favoriteBreedsRepository: FavoriteBreedsRepository = UserDefaultsRepository<FavoriteBreeds>()) {
@@ -21,6 +30,11 @@ final class BreedsViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchBreeds()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.deselect(animated: animated)
     }
 
     override func initialize() {
@@ -51,5 +65,9 @@ final class BreedsViewController: ViewController {
         cell.accessoryType = .disclosureIndicator
         cell.favoriteButton.setImage(breedViewModel.favoriteIcon, for: .normal)
         cell.favoriteButton.tintColor = breedViewModel.favoriteIconColor
+    }
+
+    private func didSelect(breed: BreedViewModel) {
+        didSelectSubject.onNext(breed)
     }
 }
