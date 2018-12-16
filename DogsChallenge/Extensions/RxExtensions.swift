@@ -23,6 +23,14 @@ extension Observable where E == Data {
     }
 }
 
+extension PrimitiveSequence where Trait == MaybeTrait, E == Data {
+    func mapDecodable<T: Decodable>(_: T.Type, jsonDecoder: JSONDecoder = .init()) -> Maybe<T> {
+        return map {
+            return try jsonDecoder.decode(T.self, from: $0)
+        }
+    }
+}
+
 extension PrimitiveSequence where Trait == SingleTrait {
     func trackLoading(binder: Binder<Bool>) -> Single<Element> {
         return self.do(onSuccess: { _ in binder.onNext(false) },

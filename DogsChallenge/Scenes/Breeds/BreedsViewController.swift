@@ -8,7 +8,8 @@ final class BreedsViewController: ViewController {
 
     private let gateway: BreedsGateway
 
-    init(gateway: BreedsGateway = HttpGetGateway<Breeds>(endpoint: .breeds)) {
+    init(gateway: BreedsGateway = HttpGetGateway<Breeds>(endpoint: .breeds),
+         favoriteBreedsRepository: FavoriteBreedsRepository = UserDefaultsRepository<FavoriteBreeds>()) {
         self.gateway = gateway
         super.init()
     }
@@ -44,7 +45,7 @@ final class BreedsViewController: ViewController {
             .disposed(by: disposeBag)
     }
 
-    private func breedCellConfigurator(cell: UITableViewCell, breed: Breed) {
+    private func breedCellConfigurator(cell: BreedTableViewCell, breed: Breed) {
         cell.textLabel?.text = breed.name
     }
 }

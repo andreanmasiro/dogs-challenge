@@ -15,4 +15,12 @@ extension UIView {
 
         return nil
     }
+
+    func activate(_ constraints: NSLayoutConstraint...) {
+        NSLayoutConstraint.activate(constraints)
+    }
+
+    func removeConstraints() {
+        removeConstraints(constraints)
+    }
 }
