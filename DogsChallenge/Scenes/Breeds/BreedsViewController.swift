@@ -23,12 +23,18 @@ final class BreedsViewController: ViewController {
     }
 
     override func initialize() {
+        super.initialize()
         view.addSubview(tableView)
     }
 
     override func installConstraints() {
+        super.installConstraints()
         tableView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         tableView.frame = view.bounds
+    }
+
+    override func onLoading(_ isLoading: Bool) {
+        tableView.isHidden = isLoading
     }
 
     private func fetchBreeds() {

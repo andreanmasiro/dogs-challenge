@@ -4,7 +4,7 @@ import RxCocoa
 
 class ViewController: UIViewController {
     let loadingView: UIActivityIndicatorView = {
-        let view = UIActivityIndicatorView()
+        let view = UIActivityIndicatorView(style: .gray)
         view.hidesWhenStopped = true
         view.stopAnimating()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     }
 
     func initialize() {
+        view.backgroundColor = .white
         view.addSubview(loadingView)
     }
 
@@ -33,10 +34,15 @@ class ViewController: UIViewController {
         loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
+
+    func onLoading(_ isLoading: Bool) {}
 }
 
 extension Reactive where Base: ViewController {
     var loading: Binder<Bool> {
-        return base.loadingView.rx.isAnimating
+        return Binder<Bool>(base) { target, value in
+            target.loadingView.rx.isAnimating.onNext(value)
+            target.onLoading(value)
+        }
     }
 }
