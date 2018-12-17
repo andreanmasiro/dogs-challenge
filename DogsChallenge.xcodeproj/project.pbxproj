@@ -43,13 +43,14 @@
 		4CE3F90621C6E8CA00CB6EBD /* ImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F90521C6E8CA00CB6EBD /* ImagesViewController.swift */; };
 		4CE3F90821C6E9F700CB6EBD /* ImagesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F90721C6E9F700CB6EBD /* ImagesGateway.swift */; };
 		4CE3F90A21C6EA2300CB6EBD /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F90921C6EA2300CB6EBD /* Links.swift */; };
-		4CE3F90D21C6F00800CB6EBD /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F90C21C6F00800CB6EBD /* Coordinator.swift */; };
+		4CE3F90D21C6F00800CB6EBD /* BreedsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F90C21C6F00800CB6EBD /* BreedsCoordinator.swift */; };
 		4CE3F90F21C6FDBA00CB6EBD /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F90E21C6FDBA00CB6EBD /* ImageTableViewCell.swift */; };
 		4CE3F91221C706DC00CB6EBD /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F91121C706DC00CB6EBD /* TableViewCell.swift */; };
 		4CE3F91421C7094800CB6EBD /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F91321C7094800CB6EBD /* ErrorView.swift */; };
 		4CE3F91621C70A6400CB6EBD /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F91521C70A6400CB6EBD /* View.swift */; };
 		4CE3F91821C72F5000CB6EBD /* SingletonModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F91721C72F5000CB6EBD /* SingletonModule.swift */; };
 		4CE3F91B21C7332000CB6EBD /* FavoriteBreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F91A21C7332000CB6EBD /* FavoriteBreedsViewController.swift */; };
+		4CE3F91D21C7CFB300CB6EBD /* FavoriteBreedsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F91C21C7CFB300CB6EBD /* FavoriteBreedsInteractor.swift */; };
 		EAE191246CF06426C34A1A7C /* Pods_DogsChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772BB0562D559AC9CEE4E6E3 /* Pods_DogsChallengeTests.framework */; };
 		ED2017D7557285F1049C1A68 /* Pods_DogsChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE51007010EB87ECED69511 /* Pods_DogsChallenge.framework */; };
 /* End PBXBuildFile section */
@@ -106,13 +107,14 @@
 		4CE3F90521C6E8CA00CB6EBD /* ImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesViewController.swift; sourceTree = "<group>"; };
 		4CE3F90721C6E9F700CB6EBD /* ImagesGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesGateway.swift; sourceTree = "<group>"; };
 		4CE3F90921C6EA2300CB6EBD /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
-		4CE3F90C21C6F00800CB6EBD /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		4CE3F90C21C6F00800CB6EBD /* BreedsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsCoordinator.swift; sourceTree = "<group>"; };
 		4CE3F90E21C6FDBA00CB6EBD /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		4CE3F91121C706DC00CB6EBD /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		4CE3F91321C7094800CB6EBD /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		4CE3F91521C70A6400CB6EBD /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		4CE3F91721C72F5000CB6EBD /* SingletonModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonModule.swift; sourceTree = "<group>"; };
 		4CE3F91A21C7332000CB6EBD /* FavoriteBreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreedsViewController.swift; sourceTree = "<group>"; };
+		4CE3F91C21C7CFB300CB6EBD /* FavoriteBreedsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreedsInteractor.swift; sourceTree = "<group>"; };
 		4EE51007010EB87ECED69511 /* Pods_DogsChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogsChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FCEF84E0C6858919BF9A74 /* Pods-DogsChallenge.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogsChallenge.test.xcconfig"; path = "Target Support Files/Pods-DogsChallenge/Pods-DogsChallenge.test.xcconfig"; sourceTree = "<group>"; };
 		772BB0562D559AC9CEE4E6E3 /* Pods_DogsChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogsChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -289,7 +291,7 @@
 				4CE3F91921C732FA00CB6EBD /* FavoriteBreeds */,
 				4CE3F8FB21C6DB8200CB6EBD /* Images */,
 				4CE3F8BF21C57AB300CB6EBD /* Breeds */,
-				4CE3F90C21C6F00800CB6EBD /* Coordinator.swift */,
+				4CE3F90C21C6F00800CB6EBD /* BreedsCoordinator.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -394,6 +396,7 @@
 				4CE3F8F921C6DB2100CB6EBD /* FavoriteBreed.swift */,
 				4CE3F8F721C6D88A00CB6EBD /* FavoriteBreedsStore.swift */,
 				4CE3F91A21C7332000CB6EBD /* FavoriteBreedsViewController.swift */,
+				4CE3F91C21C7CFB300CB6EBD /* FavoriteBreedsInteractor.swift */,
 			);
 			path = FavoriteBreeds;
 			sourceTree = "<group>";
@@ -624,10 +627,11 @@
 				4CE3F90A21C6EA2300CB6EBD /* Links.swift in Sources */,
 				4CE3F90221C6E1C400CB6EBD /* Colors.swift in Sources */,
 				4CE3F8D521C580BB00CB6EBD /* SingleSectionDataSource.swift in Sources */,
+				4CE3F91D21C7CFB300CB6EBD /* FavoriteBreedsInteractor.swift in Sources */,
 				4CE3F8D921C5836900CB6EBD /* UITableViewCellExtensions.swift in Sources */,
 				4CE3F8CA21C57CF700CB6EBD /* BreedsViewController.swift in Sources */,
 				4CE3F90621C6E8CA00CB6EBD /* ImagesViewController.swift in Sources */,
-				4CE3F90D21C6F00800CB6EBD /* Coordinator.swift in Sources */,
+				4CE3F90D21C6F00800CB6EBD /* BreedsCoordinator.swift in Sources */,
 				4CE3F91821C72F5000CB6EBD /* SingletonModule.swift in Sources */,
 				4CE3F91221C706DC00CB6EBD /* TableViewCell.swift in Sources */,
 				4CE3F8C821C57BDC00CB6EBD /* HttpGetGateway.swift in Sources */,

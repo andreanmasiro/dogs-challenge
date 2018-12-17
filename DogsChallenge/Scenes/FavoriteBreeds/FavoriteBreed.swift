@@ -1,4 +1,4 @@
-struct FavoriteBreed {
+struct FavoriteBreed: Equatable {
     let name: String
 }
 

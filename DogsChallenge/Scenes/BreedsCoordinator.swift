@@ -1,7 +1,7 @@
 import UIKit
 import RxSwift
 
-final class Coordinator {
+final class BreedsCoordinator {
     private let disposeBag = DisposeBag()
 
     private let window: UIWindow
