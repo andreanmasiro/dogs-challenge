@@ -284,7 +284,8 @@
 		4CE3F8BE21C5772F00CB6EBD /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				4CE3F8FB21C6DB8200CB6EBD /* FavoriteBreeds */,
+				4CE3F91921C732FA00CB6EBD /* FavoriteBreeds */,
+				4CE3F8FB21C6DB8200CB6EBD /* Images */,
 				4CE3F8BF21C57AB300CB6EBD /* Breeds */,
 				4CE3F90C21C6F00800CB6EBD /* Coordinator.swift */,
 			);
@@ -366,16 +367,14 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
-		4CE3F8FB21C6DB8200CB6EBD /* FavoriteBreeds */ = {
+		4CE3F8FB21C6DB8200CB6EBD /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				4CE3F8F921C6DB2100CB6EBD /* FavoriteBreed.swift */,
-				4CE3F8F721C6D88A00CB6EBD /* FavoriteBreedsRepository.swift */,
 				4CE3F90521C6E8CA00CB6EBD /* ImagesViewController.swift */,
 				4CE3F90721C6E9F700CB6EBD /* ImagesGateway.swift */,
 				4CE3F90E21C6FDBA00CB6EBD /* ImageTableViewCell.swift */,
 			);
-			path = FavoriteBreeds;
+			path = Images;
 			sourceTree = "<group>";
 		};
 		4CE3F8FE21C6DCA500CB6EBD /* Resources */ = {
@@ -385,6 +384,15 @@
 				4CE3F90121C6E1C400CB6EBD /* Colors.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		4CE3F91921C732FA00CB6EBD /* FavoriteBreeds */ = {
+			isa = PBXGroup;
+			children = (
+				4CE3F8F921C6DB2100CB6EBD /* FavoriteBreed.swift */,
+				4CE3F8F721C6D88A00CB6EBD /* FavoriteBreedsRepository.swift */,
+			);
+			path = FavoriteBreeds;
 			sourceTree = "<group>";
 		};
 		5B81C157CFE3581053D6A9BF /* Pods */ = {
