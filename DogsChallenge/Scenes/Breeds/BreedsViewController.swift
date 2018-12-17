@@ -2,23 +2,24 @@ import UIKit
 import RxSwift
 
 final class BreedsViewController: ViewController {
-    typealias Builder = (BreedsGateway, FavoriteBreedsStore) -> BreedsViewController
+    typealias Builder = (BreedsGateway, FavoriteBreedsInteractor) -> BreedsViewController
+
+    private let gateway: BreedsGateway
+    private let favoriteBreedsInteractor: FavoriteBreedsInteractor
 
     private let tableView = UITableView()
-    private let gateway: BreedsGateway
-
     lazy var dataSource = SingleSectionDataSource(tableView: tableView,
                                                   cellConfigurator: breedCellConfigurator,
                                                   didSelect: didSelect)
-
-    private var didSelectSubject = PublishSubject<BreedViewModel>()
-    var didSelect: Observable<BreedViewModel> {
+    private var didSelectSubject = PublishSubject<Breed>()
+    var didSelect: Observable<Breed> {
         return didSelectSubject.asObservable()
     }
 
     init(gateway: BreedsGateway = HttpGetGateway<Breeds>(endpoint: .breeds),
-         favoriteBreedsRepository: FavoriteBreedsStore = UserDefaultsStore<FavoriteBreeds>()) {
+         favoriteBreedsInteractor: FavoriteBreedsInteractor) {
         self.gateway = gateway
+        self.favoriteBreedsInteractor = favoriteBreedsInteractor
         super.init()
     }
 
@@ -61,19 +62,28 @@ final class BreedsViewController: ViewController {
                 onSubscribed: { self.setState(.loading) },
                 onDispose: { self.setState(.idle) })
             .trackError({ self.setState(.error($0)) }, retryWhen: self.retryObservable)
-            .map { $0.map(BreedViewModel.init) }
             .subscribe(onSuccess: dataSource.modelsSetter)
             .disposed(by: disposeBag)
     }
 
-    private func breedCellConfigurator(cell: BreedTableViewCell, breedViewModel: BreedViewModel) {
-        cell.textLabel?.text = breedViewModel.name
+    private func breedCellConfigurator(cell: BreedTableViewCell, breed: Breed) {
+        let curriedViewModelBuilder = {
+            return BreedViewModel(breed: breed, isFavorite: $0)
+        }
         cell.accessoryType = .disclosureIndicator
-        cell.favoriteButton.setImage(breedViewModel.favoriteIcon, for: .normal)
-        cell.favoriteButton.tintColor = breedViewModel.favoriteIconColor
+        favoriteBreedsInteractor.isFavorite(breed)
+            .map(curriedViewModelBuilder)
+            .subscribe(onSuccess: cell.bind)
+            .disposed(by: cell.disposeBag)
+
+        cell.favoriteButton.rx.tap
+            .flatMap { [favoriteBreedsInteractor] in favoriteBreedsInteractor.toggle(breed) }
+            .map(curriedViewModelBuilder)
+            .subscribe(onNext: cell.bind)
+            .disposed(by: cell.disposeBag)
     }
 
-    private func didSelect(breed: BreedViewModel) {
+    private func didSelect(breed: Breed) {
         didSelectSubject.onNext(breed)
     }
 }

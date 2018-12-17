@@ -11,7 +11,8 @@ final class BreedsCoordinator {
 
     private var breedsViewController: BreedsViewController?
     private let breedsGateway: BreedsGateway
-    private let favoriteBreedsRepository: FavoriteBreedsStore
+    private let favoriteBreedsInteractor: FavoriteBreedsInteractor
+    private let favoriteBreedsStore: FavoriteBreedsStore
 
     private let imagesGatewayFactory: ImagesGatewayFactory
 
@@ -21,18 +22,20 @@ final class BreedsCoordinator {
          breedsViewControllerBuilder: @escaping BreedsViewController.Builder = BreedsViewController.init,
          imagesViewControllerBuilder: @escaping ImagesViewController.Builder = ImagesViewController.init,
          breedsGateway: BreedsGateway = CacheHttpGetGateway<Breeds>(endpoint: .breeds),
-         favoriteBreedsRepository: FavoriteBreedsStore = UserDefaultsStore<FavoriteBreeds>(),
-         imagesGatewayFactory: ImagesGatewayFactory = DefaultImagesGatewayFactory()) {
+         favoriteBreedsStore: FavoriteBreedsStore = UserDefaultsStore<FavoriteBreeds>(),
+         imagesGatewayFactory: ImagesGatewayFactory = DefaultImagesGatewayFactory(),
+         favoriteBreedsInteractorFactory: FavoriteBreedsInteractorFactory = DefaultFavoriteBreedsInteractorFactory()) {
         self.window = window
         self.breedsViewControllerBuilder = breedsViewControllerBuilder
         self.imagesViewControllerBuilder = imagesViewControllerBuilder
         self.breedsGateway = breedsGateway
-        self.favoriteBreedsRepository = favoriteBreedsRepository
+        self.favoriteBreedsStore = favoriteBreedsStore
         self.imagesGatewayFactory = imagesGatewayFactory
+        self.favoriteBreedsInteractor = favoriteBreedsInteractorFactory.make(store: favoriteBreedsStore)
     }
 
     func start() {
-        let breedsViewController = breedsViewControllerBuilder(breedsGateway, favoriteBreedsRepository)
+        let breedsViewController = breedsViewControllerBuilder(breedsGateway, favoriteBreedsInteractor)
         navigationController = UINavigationController(rootViewController: breedsViewController)
         window.rootViewController = navigationController
 
@@ -62,5 +65,15 @@ protocol ImagesGatewayFactory {
 class DefaultImagesGatewayFactory: ImagesGatewayFactory {
     func make(endpoint: URL) -> ImagesGateway {
         return SingletonModule.shared.makeImagesGateway(endpoint: endpoint)
+    }
+}
+
+protocol FavoriteBreedsInteractorFactory {
+    func make(store: FavoriteBreedsStore) -> FavoriteBreedsInteractor
+}
+
+class DefaultFavoriteBreedsInteractorFactory: FavoriteBreedsInteractorFactory {
+    func make(store: FavoriteBreedsStore) -> FavoriteBreedsInteractor {
+        return DefaultFavoriteBreedsInteractor(favoriteBreedsStore: store, adapter: BreedAdapter())
     }
 }

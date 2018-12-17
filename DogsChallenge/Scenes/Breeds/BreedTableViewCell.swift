@@ -1,6 +1,9 @@
 import UIKit
+import RxSwift
 
 final class BreedTableViewCell: TableViewCell {
+    var disposeBag = DisposeBag()
+
     lazy var favoriteButton: UIButton = {
         let button = UIButton()
         button.tintColor = .accessoryGray
@@ -27,5 +30,16 @@ final class BreedTableViewCell: TableViewCell {
             favoriteButton.widthAnchor.constraint(equalToConstant: Metrics.normal),
             favoriteButton.heightAnchor.constraint(equalToConstant: Metrics.normal)
         )
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
+
+    func bind(_ viewModel: BreedViewModel) {
+        textLabel?.text = viewModel.name
+        favoriteButton.setImage(viewModel.favoriteIcon, for: .normal)
+        favoriteButton.tintColor = viewModel.favoriteIconColor
     }
 }
