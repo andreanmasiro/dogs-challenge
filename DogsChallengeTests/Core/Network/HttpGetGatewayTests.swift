@@ -30,4 +30,23 @@ final class HttpGetGatewayTests: XCTestCase {
 
         expect(try gateway.get().toBlocking().first()).to(throwError(stubError))
     }
+
+    func testCacheGatewayDoesNotCallGatewayIfHasCache() throws {
+        let endpoint = URL(string: "http://get.breeds.com")!
+        let stubResponse = TestModel(value: "value")
+        let mockClient = MockHttpClient<TestModel>()
+
+        let gateway = CacheHttpGetGateway<TestModel>(client: mockClient, endpoint: endpoint)
+
+        var callCount = 0
+        mockClient.response = Single.deferred {
+            callCount += 1
+            return .just(stubResponse)
+        }
+
+        _ = try gateway.get().toBlocking().first()
+        _ = try gateway.get().toBlocking().first()
+
+        expect(callCount) == 1
+    }
 }
