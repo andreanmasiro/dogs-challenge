@@ -4,8 +4,6 @@ import RxSwift
 final class BreedsCoordinator {
     private let disposeBag = DisposeBag()
 
-    private let window: UIWindow
-
     private let breedsViewControllerBuilder: BreedsViewController.Builder
     private let imagesViewControllerBuilder: ImagesViewController.Builder
 
@@ -16,16 +14,14 @@ final class BreedsCoordinator {
 
     private let imagesGatewayFactory: ImagesGatewayFactory
 
-    private var navigationController: UINavigationController?
+    let navigationController = UINavigationController()
 
-    init(window: UIWindow,
-         breedsViewControllerBuilder: @escaping BreedsViewController.Builder = BreedsViewController.init,
+    init(breedsViewControllerBuilder: @escaping BreedsViewController.Builder = BreedsViewController.init,
          imagesViewControllerBuilder: @escaping ImagesViewController.Builder = ImagesViewController.init,
          breedsGateway: BreedsGateway = CacheHttpGetGateway<Breeds>(endpoint: .breeds),
          favoriteBreedsStore: FavoriteBreedsStore = UserDefaultsStore<FavoriteBreeds>(),
          imagesGatewayFactory: ImagesGatewayFactory = DefaultImagesGatewayFactory(),
          favoriteBreedsInteractorFactory: FavoriteBreedsInteractorFactory = DefaultFavoriteBreedsInteractorFactory()) {
-        self.window = window
         self.breedsViewControllerBuilder = breedsViewControllerBuilder
         self.imagesViewControllerBuilder = imagesViewControllerBuilder
         self.breedsGateway = breedsGateway
@@ -36,16 +32,14 @@ final class BreedsCoordinator {
 
     func start() {
         let breedsViewController = breedsViewControllerBuilder(breedsGateway, favoriteBreedsInteractor)
-        navigationController = UINavigationController(rootViewController: breedsViewController)
-        window.rootViewController = navigationController
-
+        navigationController.viewControllers = [breedsViewController]
         bind(to: breedsViewController)
         self.breedsViewController = breedsViewController
     }
 
     private func navigateToImages(breedName: String, imagesGateway: ImagesGateway) {
         let imagesViewController = imagesViewControllerBuilder(breedName, imagesGateway)
-        navigationController?.pushViewController(imagesViewController, animated: true)
+        navigationController.pushViewController(imagesViewController, animated: true)
     }
 
     private func bind(to viewController: BreedsViewController) {
@@ -55,16 +49,6 @@ final class BreedsCoordinator {
                 self?.navigateToImages(breedName: $0.0, imagesGateway: $0.1)
             })
             .disposed(by: disposeBag)
-    }
-}
-
-protocol ImagesGatewayFactory {
-    func make(endpoint: URL) -> ImagesGateway
-}
-
-class DefaultImagesGatewayFactory: ImagesGatewayFactory {
-    func make(endpoint: URL) -> ImagesGateway {
-        return SingletonModule.shared.makeImagesGateway(endpoint: endpoint)
     }
 }
 

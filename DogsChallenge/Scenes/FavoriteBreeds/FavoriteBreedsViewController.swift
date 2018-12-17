@@ -4,24 +4,23 @@ import RxCocoa
 import Kingfisher
 
 final class FavoriteBreedsViewController: ViewController {
-    typealias Builder = (String, ImagesGateway) -> FavoriteBreedsViewController
+    typealias Builder = (FavoriteBreedsInteractor, FavoriteBreedsStore, ImagesInteractor) -> FavoriteBreedsViewController
 
     private let tableView: UITableView = {
         let view = UITableView()
-        view.separatorStyle = .none
         view.allowsSelection = false
         return view
     }()
     lazy var dataSource = SingleSectionDataSource(tableView: tableView, cellConfigurator: imageCellConfigurator)
 
     private let favoriteBreedsStore: FavoriteBreedsStore
-    private let imagesGateway: ImagesGateway
-    private let breedName: String
+    private let imagesInteractor: ImagesInteractor
 
-    init(breedName: String, favoriteBreedsStore: FavoriteBreedsStore, imagesGateway: ImagesGateway) {
-        self.breedName = breedName
+    init(favoriteBreedsInteractor: FavoriteBreedsInteractor,
+         favoriteBreedsStore: FavoriteBreedsStore,
+         imagesInteractor: ImagesInteractor) {
         self.favoriteBreedsStore = favoriteBreedsStore
-        self.imagesGateway = imagesGateway
+        self.imagesInteractor = imagesInteractor
         super.init()
     }
 
@@ -32,7 +31,6 @@ final class FavoriteBreedsViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchBreeds()
-        title = breedName
     }
 
     override func initialize() {
@@ -56,9 +54,7 @@ final class FavoriteBreedsViewController: ViewController {
 
     private func fetchBreeds() {
         favoriteBreedsStore.getObservable()
-            .do(onNext: { _ in self.setState(.idle)},
-                onSubscribed: { self.setState(.loading) },
-                onDispose: { self.setState(.idle) })
+            .do(onNext: { [weak self] _ in self?.setState(.idle) })
             .trackError({ self.setState(.error($0)) }, retryWhen: self.retryObservable)
             .subscribe(onNext: { [dataSource] breeds in
                 dataSource.modelsSetter(breeds)
