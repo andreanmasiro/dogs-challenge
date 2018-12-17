@@ -20,7 +20,7 @@ final class Coordinator {
     init(window: UIWindow,
          breedsViewControllerBuilder: @escaping BreedsViewController.Builder = BreedsViewController.init,
          imagesViewControllerBuilder: @escaping ImagesViewController.Builder = ImagesViewController.init,
-         breedsGateway: BreedsGateway = HttpGetGateway<Breeds>(endpoint: .breeds),
+         breedsGateway: BreedsGateway = CacheHttpGetGateway<Breeds>(endpoint: .breeds),
          favoriteBreedsRepository: FavoriteBreedsRepository = UserDefaultsRepository<FavoriteBreeds>(),
          imagesGatewayFactory: ImagesGatewayFactory = DefaultImagesGatewayFactory()) {
         self.window = window
@@ -61,6 +61,6 @@ protocol ImagesGatewayFactory {
 
 class DefaultImagesGatewayFactory: ImagesGatewayFactory {
     func make(endpoint: URL) -> ImagesGateway {
-        return HttpGetGateway<Links>(endpoint: endpoint)
+        return CacheHttpGetGateway<Links>(endpoint: endpoint)
     }
 }

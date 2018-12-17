@@ -1,6 +1,6 @@
 import RxSwift
 
-final class HttpGetGateway<Model: Decodable> {
+class HttpGetGateway<Model: Decodable> {
     private let client: HttpClient
     private let endpoint: URL
     private let scheduler: SchedulerType
@@ -15,5 +15,17 @@ final class HttpGetGateway<Model: Decodable> {
 
     func get() -> Single<Model> {
         return client.get(endpoint: endpoint).observeOn(scheduler)
+    }
+}
+
+final class CacheHttpGetGateway<Model: Decodable>: HttpGetGateway<Model> {
+    private var cache: Model?
+
+    override func get() -> Single<Model> {
+        guard let cache = cache else {
+            return super.get().do(onSuccess: { [weak self] in self?.cache = $0 })
+        }
+
+        return .just(cache)
     }
 }

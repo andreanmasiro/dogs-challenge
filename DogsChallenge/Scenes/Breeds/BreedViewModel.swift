@@ -6,7 +6,7 @@ struct BreedViewModel {
     let favoriteIconColor: UIColor
 
     init(breed: Breed) {
-        name = breed.name
+        name = breed.name.capitalized
         favoriteIcon = Images.heartOutline
         favoriteIconColor = .accessoryGray
     }
