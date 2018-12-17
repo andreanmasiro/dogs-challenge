@@ -61,6 +61,6 @@ protocol ImagesGatewayFactory {
 
 class DefaultImagesGatewayFactory: ImagesGatewayFactory {
     func make(endpoint: URL) -> ImagesGateway {
-        return CacheHttpGetGateway<Links>(endpoint: endpoint)
+        return SingletonModule.shared.makeImagesGateway(endpoint: endpoint)
     }
 }
