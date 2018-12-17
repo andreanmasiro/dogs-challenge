@@ -91,11 +91,8 @@ class ViewController: UIViewController {
         )
     }
 
-    func onLoading(_ isLoading: Bool) {}
-
     func setState(_ state: ViewControllerState) {
         self.state = state
-        onLoading(state.isLoading)
         state.activityIndicatorAction(loadingView)()
         state.error.map(errorView.bind)
 

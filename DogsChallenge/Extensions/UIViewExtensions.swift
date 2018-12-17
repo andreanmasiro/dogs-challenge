@@ -2,7 +2,7 @@ import UIKit
 
 extension UIView {
     func breadthFirstSearch<T: UIView>(viewOfType type: T.Type) -> T? {
-        var queue = [self]
+        var queue = subviews
 
         while !queue.isEmpty {
             let first = queue.removeFirst()

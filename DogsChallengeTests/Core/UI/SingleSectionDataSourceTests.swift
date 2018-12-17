@@ -7,14 +7,14 @@ import XCTest
 
 final class SingleSectionDataSourceTests: XCTestCase {
     private var mockTableView: MockTableView!
-    private var dataSource: SingleSectionDataSource<Int, UITableViewCell>!
+    private var dataSource: SingleSectionDataSource<Int, TableViewCell>!
     override func setUp() {
         mockTableView = MockTableView()
-        dataSource = SingleSectionDataSource(tableView: mockTableView) { _, _ in }
+        dataSource = SingleSectionDataSource(tableView: mockTableView)
     }
 
     func testWhenInitializedSetsUpTableView() {
-        let className = String(describing: UITableViewCell.self)
+        let className = String(describing: TableViewCell.self)
 
         expect(self.mockTableView.registeredCellClass.map(String.init(describing:))) == className
         expect(self.mockTableView.registeredCellIdentifier) == className
@@ -36,9 +36,9 @@ final class SingleSectionDataSourceTests: XCTestCase {
     func testCellForRowAtIndexPathConfiguresEachCellWithTheCorrectModel() {
         var configModels = [Int]()
         let tableView = UITableView()
-        dataSource = SingleSectionDataSource(tableView: tableView) { _, model in
+        dataSource = SingleSectionDataSource(tableView: tableView, cellConfigurator: { _, model in
             configModels.append(model)
-        }
+        })
         let models = Array(0..<3)
         dataSource.models = models
 

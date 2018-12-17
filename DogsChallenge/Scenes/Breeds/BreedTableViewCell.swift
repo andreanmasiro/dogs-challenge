@@ -8,17 +8,12 @@ final class BreedTableViewCell: TableViewCell {
         return button
     }()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override func initialize() {
+        backgroundColor = .clear
         contentView.addSubview(favoriteButton)
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func installConstraints() {
         remakeFavoriteButtonConstraints()
     }
 

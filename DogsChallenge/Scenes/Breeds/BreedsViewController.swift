@@ -56,10 +56,6 @@ final class BreedsViewController: ViewController {
         }
     }
 
-    override func onLoading(_ isLoading: Bool) {
-        tableView.isHidden = isLoading
-    }
-
     private func fetchBreeds() {
         gateway.get()
             .do(onSuccess: { _ in self.setState(.idle)},

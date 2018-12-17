@@ -30,9 +30,10 @@ final class BreedsViewControllerTests: XCTestCase {
     }
 
     func testWhenLoadingItHidesTableView() {
-        let isLoading = true
-        viewController.onLoading(isLoading)
+        gateway.getStub = .never()
+        viewController = BreedsViewController(gateway: gateway)
+        viewController.setState(.loading)
 
-        expect(self.viewController.view.breadthFirstSearch(viewOfType: UITableView.self)?.isHidden) == isLoading
+        expect(self.viewController.view.breadthFirstSearch(viewOfType: UITableView.self)?.isHidden) == true
     }
 }

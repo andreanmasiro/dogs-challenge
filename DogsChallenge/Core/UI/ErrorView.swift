@@ -38,7 +38,6 @@ class ErrorView: View {
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -Metrics.large),
             titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Metrics.spacing),
-            descriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Metrics.margin),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: Metrics.margin),
             retryButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: Metrics.spacing),

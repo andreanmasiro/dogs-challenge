@@ -45,8 +45,12 @@ final class ImagesViewController: ViewController {
         tableView.frame = view.bounds
     }
 
-    override func onLoading(_ isLoading: Bool) {
-        tableView.isHidden = isLoading
+    override func setState(_ state: ViewControllerState) {
+        super.setState(state)
+        switch state {
+        case .idle: tableView.isHidden = false
+        default: tableView.isHidden = true
+        }
     }
 
     private func fetchBreeds() {
