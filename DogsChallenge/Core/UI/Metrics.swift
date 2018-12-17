@@ -2,6 +2,7 @@ import UIKit
 
 enum Metrics {
     static let spacing = 8 as CGFloat
+    static let smallMargin = 12 as CGFloat
     static let margin = 16 as CGFloat
     static let normal = 20 as CGFloat
     static let large = 32 as CGFloat
@@ -19,5 +20,10 @@ enum Metrics {
     enum FontSize {
         static let title = 32 as CGFloat
         static let body = 20 as CGFloat
+    }
+
+    enum TableRow {
+        static let `default` = 44 as CGFloat
+        static let big = 128 as CGFloat
     }
 }

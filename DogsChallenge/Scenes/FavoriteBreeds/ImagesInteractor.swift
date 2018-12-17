@@ -3,6 +3,7 @@ import RxSwift
 
 protocol ImagesInteractor {
     func images(forBreed breed: Breed) -> Single<Links>
+    func images(forBreed favoriteBreed: FavoriteBreed) -> Single<Links>
 }
 
 final class DefaultImagesInteractor: ImagesInteractor {
@@ -13,8 +14,16 @@ final class DefaultImagesInteractor: ImagesInteractor {
     }
 
     func images(forBreed breed: Breed) -> Single<Links> {
+        return images(for: breed.name)
+    }
+
+    func images(forBreed favoriteBreed: FavoriteBreed) -> Single<Links> {
+        return images(for: favoriteBreed.name)
+    }
+
+    private func images(for breedName: String) -> Single<Links> {
         return imagesGatewayFactory
-            .make(endpoint: .images(breed.name))
+            .make(endpoint: .images(breedName))
             .get()
     }
 }

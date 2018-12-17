@@ -1,8 +1,10 @@
 import UIKit
+import RxSwift
 
 class TableViewCell: UITableViewCell, HeightDefinableView {
+    var disposeBag = DisposeBag()
     class var preferredHeight: CGFloat {
-        return 44
+        return Metrics.TableRow.default
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -15,6 +17,13 @@ class TableViewCell: UITableViewCell, HeightDefinableView {
         super.init(coder: aDecoder)
     }
 
-    func initialize() {}
+    func initialize() {
+        backgroundColor = .clear
+    }
     func installConstraints() {}
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        disposeBag = DisposeBag()
+    }
 }

@@ -46,7 +46,7 @@ final class BreedsCoordinator {
         viewController.didSelect
             .map { [imagesGatewayFactory] in ($0.name, imagesGatewayFactory.make(endpoint: .images($0.name))) }
             .subscribe(onNext: { [weak self] in
-                self?.navigateToImages(breedName: $0.0, imagesGateway: $0.1)
+                self?.navigateToImages(breedName: $0.0.capitalized, imagesGateway: $0.1)
             })
             .disposed(by: disposeBag)
     }

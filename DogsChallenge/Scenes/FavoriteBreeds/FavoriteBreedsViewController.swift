@@ -22,6 +22,7 @@ final class FavoriteBreedsViewController: ViewController {
         self.favoriteBreedsStore = favoriteBreedsStore
         self.imagesInteractor = imagesInteractor
         super.init()
+        title = "Favorites"
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -30,7 +31,7 @@ final class FavoriteBreedsViewController: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchBreeds()
+        bindBreeds()
     }
 
     override func initialize() {
@@ -52,7 +53,7 @@ final class FavoriteBreedsViewController: ViewController {
         }
     }
 
-    private func fetchBreeds() {
+    private func bindBreeds() {
         favoriteBreedsStore.getObservable()
             .do(onNext: { [weak self] _ in self?.setState(.idle) })
             .trackError({ self.setState(.error($0)) }, retryWhen: self.retryObservable)
@@ -62,7 +63,15 @@ final class FavoriteBreedsViewController: ViewController {
             .disposed(by: disposeBag)
     }
 
-    private func imageCellConfigurator(cell: UITableViewCell, favoriteBreed: FavoriteBreed) {
-        cell.textLabel?.text = favoriteBreed.name
+    private func imageCellConfigurator(cell: FavoriteBreedTableViewCell, favoriteBreed: FavoriteBreed) {
+        let curriedViewModelBuilder = {
+            FavoriteBreedViewModel(favoriteBreed: favoriteBreed, links: $0)
+        }
+
+        imagesInteractor.images(forBreed: favoriteBreed).asObservable()
+            .startWith(Links(links: []))
+            .map(curriedViewModelBuilder)
+            .subscribe(onNext: cell.bind)
+            .disposed(by: cell.disposeBag)
     }
 }

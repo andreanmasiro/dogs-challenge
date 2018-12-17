@@ -35,10 +35,15 @@ final class AppCoordinator {
         let favoriteBreedsViewController = favoriteBreedsViewControllerBuilder(
             favoriteBreedsInteractor, favoriteBreedsStore, imagesInteractor
         )
-        tabBarController.viewControllers = [breedsCoordinator.navigationController, favoriteBreedsViewController]
+        let favoriteNavigationController = UINavigationController(rootViewController: favoriteBreedsViewController)
+        tabBarController.viewControllers = [breedsCoordinator.navigationController, favoriteNavigationController]
 
-        breedsCoordinator.navigationController.tabBarItem = UITabBarItem(title: "Breeds", image: nil, selectedImage: nil)
-        favoriteBreedsViewController.tabBarItem = UITabBarItem(title: "Favorites", image: nil, selectedImage: nil)
+        breedsCoordinator.navigationController.tabBarItem = UITabBarItem(title: "Breeds",
+                                                                         image: nil,
+                                                                         selectedImage: nil)
+        favoriteBreedsViewController.tabBarItem = UITabBarItem(title: "Favorites",
+                                                               image: nil,
+                                                               selectedImage: nil)
 
         window.rootViewController = tabBarController
     }

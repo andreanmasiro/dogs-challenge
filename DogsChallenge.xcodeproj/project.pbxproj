@@ -54,6 +54,9 @@
 		4CE3F91F21C7D93900CB6EBD /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F91E21C7D93900CB6EBD /* AppCoordinator.swift */; };
 		4CE3F92221C7DB6300CB6EBD /* ImagesGatewayFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F92121C7DB6300CB6EBD /* ImagesGatewayFactory.swift */; };
 		4CE3F92421C7DBC700CB6EBD /* ImagesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F92321C7DBC700CB6EBD /* ImagesInteractor.swift */; };
+		4CE3F92621C7DFAE00CB6EBD /* FavoriteBreedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F92521C7DFAE00CB6EBD /* FavoriteBreedTableViewCell.swift */; };
+		4CE3F92821C7E20D00CB6EBD /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F92721C7E20D00CB6EBD /* IntExtensions.swift */; };
+		4CE3F92A21C7E6E600CB6EBD /* FavoriteBreedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F92921C7E6E600CB6EBD /* FavoriteBreedViewModel.swift */; };
 		EAE191246CF06426C34A1A7C /* Pods_DogsChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772BB0562D559AC9CEE4E6E3 /* Pods_DogsChallengeTests.framework */; };
 		ED2017D7557285F1049C1A68 /* Pods_DogsChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE51007010EB87ECED69511 /* Pods_DogsChallenge.framework */; };
 /* End PBXBuildFile section */
@@ -121,6 +124,9 @@
 		4CE3F91E21C7D93900CB6EBD /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4CE3F92121C7DB6300CB6EBD /* ImagesGatewayFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesGatewayFactory.swift; sourceTree = "<group>"; };
 		4CE3F92321C7DBC700CB6EBD /* ImagesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesInteractor.swift; sourceTree = "<group>"; };
+		4CE3F92521C7DFAE00CB6EBD /* FavoriteBreedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreedTableViewCell.swift; sourceTree = "<group>"; };
+		4CE3F92721C7E20D00CB6EBD /* IntExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
+		4CE3F92921C7E6E600CB6EBD /* FavoriteBreedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreedViewModel.swift; sourceTree = "<group>"; };
 		4EE51007010EB87ECED69511 /* Pods_DogsChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogsChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FCEF84E0C6858919BF9A74 /* Pods-DogsChallenge.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogsChallenge.test.xcconfig"; path = "Target Support Files/Pods-DogsChallenge/Pods-DogsChallenge.test.xcconfig"; sourceTree = "<group>"; };
 		772BB0562D559AC9CEE4E6E3 /* Pods_DogsChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogsChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +255,7 @@
 				4CE3F8D621C5834900CB6EBD /* UITableViewExtensions.swift */,
 				4CE3F8D821C5836900CB6EBD /* UITableViewCellExtensions.swift */,
 				4CE3F8E821C6CB9600CB6EBD /* UIViewExtensions.swift */,
+				4CE3F92721C7E20D00CB6EBD /* IntExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -406,6 +413,8 @@
 				4CE3F91A21C7332000CB6EBD /* FavoriteBreedsViewController.swift */,
 				4CE3F91C21C7CFB300CB6EBD /* FavoriteBreedsInteractor.swift */,
 				4CE3F92321C7DBC700CB6EBD /* ImagesInteractor.swift */,
+				4CE3F92521C7DFAE00CB6EBD /* FavoriteBreedTableViewCell.swift */,
+				4CE3F92921C7E6E600CB6EBD /* FavoriteBreedViewModel.swift */,
 			);
 			path = FavoriteBreeds;
 			sourceTree = "<group>";
@@ -644,6 +653,7 @@
 				4CE3F90A21C6EA2300CB6EBD /* Links.swift in Sources */,
 				4CE3F90221C6E1C400CB6EBD /* Colors.swift in Sources */,
 				4CE3F8D521C580BB00CB6EBD /* SingleSectionDataSource.swift in Sources */,
+				4CE3F92A21C7E6E600CB6EBD /* FavoriteBreedViewModel.swift in Sources */,
 				4CE3F91D21C7CFB300CB6EBD /* FavoriteBreedsInteractor.swift in Sources */,
 				4CE3F8D921C5836900CB6EBD /* UITableViewCellExtensions.swift in Sources */,
 				4CE3F8CA21C57CF700CB6EBD /* BreedsViewController.swift in Sources */,
@@ -663,6 +673,7 @@
 				4CE3F92221C7DB6300CB6EBD /* ImagesGatewayFactory.swift in Sources */,
 				4CE3F8DE21C58CF500CB6EBD /* ViewController.swift in Sources */,
 				4CE3F8AD21C566C600CB6EBD /* URLSessionHttpClient.swift in Sources */,
+				4CE3F92621C7DFAE00CB6EBD /* FavoriteBreedTableViewCell.swift in Sources */,
 				4CE3F8FD21C6DBD100CB6EBD /* Adapter.swift in Sources */,
 				4CE3F91B21C7332000CB6EBD /* FavoriteBreedsViewController.swift in Sources */,
 				4CE3F90F21C6FDBA00CB6EBD /* ImageTableViewCell.swift in Sources */,
@@ -671,6 +682,7 @@
 				4CE3F88621C562CC00CB6EBD /* AppDelegate.swift in Sources */,
 				4CE3F91421C7094800CB6EBD /* ErrorView.swift in Sources */,
 				4CE3F8D721C5834900CB6EBD /* UITableViewExtensions.swift in Sources */,
+				4CE3F92821C7E20D00CB6EBD /* IntExtensions.swift in Sources */,
 				4CE3F91621C70A6400CB6EBD /* View.swift in Sources */,
 				4CE3F8F821C6D88A00CB6EBD /* FavoriteBreedsStore.swift in Sources */,
 				4CE3F8F121C6D44B00CB6EBD /* Metrics.swift in Sources */,

@@ -1,8 +1,10 @@
 import Foundation
 
-struct Links: Decodable {
+struct Links {
     let links: [URL]
+}
 
+extension Links: Decodable {
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let strings = try container.decode([String].self)
