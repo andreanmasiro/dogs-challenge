@@ -38,6 +38,8 @@ enum ViewControllerState {
 }
 
 class ViewController: UIViewController {
+    let disposeBag = DisposeBag()
+
     var state = ViewControllerState.idle
 
     var retryObservable: Observable<Void> {
@@ -110,6 +112,17 @@ extension Reactive where Base: ViewController {
 
 extension PrimitiveSequence where Trait == SingleTrait {
     func trackError<T>(_ errorHandler: @escaping (Error) -> Void, retryWhen notifier: Observable<T>) -> Single<Element> {
+        return retryWhen { observable -> Observable<T> in
+            observable.flatMap { error -> Observable<T> in
+                errorHandler(error)
+                return notifier
+            }
+        }
+    }
+}
+
+extension Observable {
+    func trackError<T>(_ errorHandler: @escaping (Error) -> Void, retryWhen notifier: Observable<T>) -> Observable<Element> {
         return retryWhen { observable -> Observable<T> in
             observable.flatMap { error -> Observable<T> in
                 errorHandler(error)

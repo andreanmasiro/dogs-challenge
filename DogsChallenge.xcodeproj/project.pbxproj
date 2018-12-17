@@ -33,8 +33,8 @@
 		4CE3F8ED21C6CD3200CB6EBD /* SingleSectionDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8EC21C6CD3200CB6EBD /* SingleSectionDataSourceTests.swift */; };
 		4CE3F8EF21C6D30600CB6EBD /* BreedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8EE21C6D30600CB6EBD /* BreedTableViewCell.swift */; };
 		4CE3F8F121C6D44B00CB6EBD /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8F021C6D44B00CB6EBD /* Metrics.swift */; };
-		4CE3F8F621C6D61F00CB6EBD /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8F521C6D61F00CB6EBD /* UserDefaultsRepository.swift */; };
-		4CE3F8F821C6D88A00CB6EBD /* FavoriteBreedsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8F721C6D88A00CB6EBD /* FavoriteBreedsRepository.swift */; };
+		4CE3F8F621C6D61F00CB6EBD /* UserDefaultsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8F521C6D61F00CB6EBD /* UserDefaultsStore.swift */; };
+		4CE3F8F821C6D88A00CB6EBD /* FavoriteBreedsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8F721C6D88A00CB6EBD /* FavoriteBreedsStore.swift */; };
 		4CE3F8FA21C6DB2100CB6EBD /* FavoriteBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8F921C6DB2100CB6EBD /* FavoriteBreed.swift */; };
 		4CE3F8FD21C6DBD100CB6EBD /* Adapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8FC21C6DBD100CB6EBD /* Adapter.swift */; };
 		4CE3F90021C6DCAE00CB6EBD /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F8FF21C6DCAE00CB6EBD /* Images.swift */; };
@@ -49,6 +49,7 @@
 		4CE3F91421C7094800CB6EBD /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F91321C7094800CB6EBD /* ErrorView.swift */; };
 		4CE3F91621C70A6400CB6EBD /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F91521C70A6400CB6EBD /* View.swift */; };
 		4CE3F91821C72F5000CB6EBD /* SingletonModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F91721C72F5000CB6EBD /* SingletonModule.swift */; };
+		4CE3F91B21C7332000CB6EBD /* FavoriteBreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE3F91A21C7332000CB6EBD /* FavoriteBreedsViewController.swift */; };
 		EAE191246CF06426C34A1A7C /* Pods_DogsChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 772BB0562D559AC9CEE4E6E3 /* Pods_DogsChallengeTests.framework */; };
 		ED2017D7557285F1049C1A68 /* Pods_DogsChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE51007010EB87ECED69511 /* Pods_DogsChallenge.framework */; };
 /* End PBXBuildFile section */
@@ -95,8 +96,8 @@
 		4CE3F8EC21C6CD3200CB6EBD /* SingleSectionDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleSectionDataSourceTests.swift; sourceTree = "<group>"; };
 		4CE3F8EE21C6D30600CB6EBD /* BreedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedTableViewCell.swift; sourceTree = "<group>"; };
 		4CE3F8F021C6D44B00CB6EBD /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
-		4CE3F8F521C6D61F00CB6EBD /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
-		4CE3F8F721C6D88A00CB6EBD /* FavoriteBreedsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreedsRepository.swift; sourceTree = "<group>"; };
+		4CE3F8F521C6D61F00CB6EBD /* UserDefaultsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStore.swift; sourceTree = "<group>"; };
+		4CE3F8F721C6D88A00CB6EBD /* FavoriteBreedsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreedsStore.swift; sourceTree = "<group>"; };
 		4CE3F8F921C6DB2100CB6EBD /* FavoriteBreed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreed.swift; sourceTree = "<group>"; };
 		4CE3F8FC21C6DBD100CB6EBD /* Adapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adapter.swift; sourceTree = "<group>"; };
 		4CE3F8FF21C6DCAE00CB6EBD /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -111,6 +112,7 @@
 		4CE3F91321C7094800CB6EBD /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		4CE3F91521C70A6400CB6EBD /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		4CE3F91721C72F5000CB6EBD /* SingletonModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonModule.swift; sourceTree = "<group>"; };
+		4CE3F91A21C7332000CB6EBD /* FavoriteBreedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBreedsViewController.swift; sourceTree = "<group>"; };
 		4EE51007010EB87ECED69511 /* Pods_DogsChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogsChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75FCEF84E0C6858919BF9A74 /* Pods-DogsChallenge.test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DogsChallenge.test.xcconfig"; path = "Target Support Files/Pods-DogsChallenge/Pods-DogsChallenge.test.xcconfig"; sourceTree = "<group>"; };
 		772BB0562D559AC9CEE4E6E3 /* Pods_DogsChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DogsChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,7 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				4CE3F8FE21C6DCA500CB6EBD /* Resources */,
-				4CE3F8F221C6D5A100CB6EBD /* Repository */,
+				4CE3F8F221C6D5A100CB6EBD /* Store */,
 				4CE3F8DA21C588F000CB6EBD /* API */,
 				4CE3F8D321C580B100CB6EBD /* UI */,
 				4CE3F8BC21C5768700CB6EBD /* Network */,
@@ -358,13 +360,13 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
-		4CE3F8F221C6D5A100CB6EBD /* Repository */ = {
+		4CE3F8F221C6D5A100CB6EBD /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				4CE3F8F521C6D61F00CB6EBD /* UserDefaultsRepository.swift */,
+				4CE3F8F521C6D61F00CB6EBD /* UserDefaultsStore.swift */,
 				4CE3F8FC21C6DBD100CB6EBD /* Adapter.swift */,
 			);
-			path = Repository;
+			path = Store;
 			sourceTree = "<group>";
 		};
 		4CE3F8FB21C6DB8200CB6EBD /* Images */ = {
@@ -390,7 +392,8 @@
 			isa = PBXGroup;
 			children = (
 				4CE3F8F921C6DB2100CB6EBD /* FavoriteBreed.swift */,
-				4CE3F8F721C6D88A00CB6EBD /* FavoriteBreedsRepository.swift */,
+				4CE3F8F721C6D88A00CB6EBD /* FavoriteBreedsStore.swift */,
+				4CE3F91A21C7332000CB6EBD /* FavoriteBreedsViewController.swift */,
 			);
 			path = FavoriteBreeds;
 			sourceTree = "<group>";
@@ -639,15 +642,16 @@
 				4CE3F8DE21C58CF500CB6EBD /* ViewController.swift in Sources */,
 				4CE3F8AD21C566C600CB6EBD /* URLSessionHttpClient.swift in Sources */,
 				4CE3F8FD21C6DBD100CB6EBD /* Adapter.swift in Sources */,
+				4CE3F91B21C7332000CB6EBD /* FavoriteBreedsViewController.swift in Sources */,
 				4CE3F90F21C6FDBA00CB6EBD /* ImageTableViewCell.swift in Sources */,
 				4CE3F8AB21C5653E00CB6EBD /* HttpClient.swift in Sources */,
 				4CE3F88621C562CC00CB6EBD /* AppDelegate.swift in Sources */,
 				4CE3F91421C7094800CB6EBD /* ErrorView.swift in Sources */,
 				4CE3F8D721C5834900CB6EBD /* UITableViewExtensions.swift in Sources */,
 				4CE3F91621C70A6400CB6EBD /* View.swift in Sources */,
-				4CE3F8F821C6D88A00CB6EBD /* FavoriteBreedsRepository.swift in Sources */,
+				4CE3F8F821C6D88A00CB6EBD /* FavoriteBreedsStore.swift in Sources */,
 				4CE3F8F121C6D44B00CB6EBD /* Metrics.swift in Sources */,
-				4CE3F8F621C6D61F00CB6EBD /* UserDefaultsRepository.swift in Sources */,
+				4CE3F8F621C6D61F00CB6EBD /* UserDefaultsStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

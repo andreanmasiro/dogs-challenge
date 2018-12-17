@@ -3,8 +3,8 @@ import RxSwift
 import RxCocoa
 import Kingfisher
 
-final class ImagesViewController: ViewController {
-    typealias Builder = (String, ImagesGateway) -> ImagesViewController
+final class FavoriteBreedsViewController: ViewController {
+    typealias Builder = (String, ImagesGateway) -> FavoriteBreedsViewController
 
     private let tableView: UITableView = {
         let view = UITableView()
@@ -14,12 +14,14 @@ final class ImagesViewController: ViewController {
     }()
     lazy var dataSource = SingleSectionDataSource(tableView: tableView, cellConfigurator: imageCellConfigurator)
 
-    private let gateway: ImagesGateway
+    private let favoriteBreedsStore: FavoriteBreedsStore
+    private let imagesGateway: ImagesGateway
     private let breedName: String
 
-    init(breedName: String, gateway: ImagesGateway) {
-        self.gateway = gateway
+    init(breedName: String, favoriteBreedsStore: FavoriteBreedsStore, imagesGateway: ImagesGateway) {
         self.breedName = breedName
+        self.favoriteBreedsStore = favoriteBreedsStore
+        self.imagesGateway = imagesGateway
         super.init()
     }
 
@@ -53,18 +55,18 @@ final class ImagesViewController: ViewController {
     }
 
     private func fetchBreeds() {
-        gateway.get()
-            .do(onSuccess: { _ in self.setState(.idle)},
+        favoriteBreedsStore.getObservable()
+            .do(onNext: { _ in self.setState(.idle)},
                 onSubscribed: { self.setState(.loading) },
                 onDispose: { self.setState(.idle) })
             .trackError({ self.setState(.error($0)) }, retryWhen: self.retryObservable)
-            .subscribe(onSuccess: { [dataSource] in
-                dataSource.modelsSetter($0.links)
+            .subscribe(onNext: { [dataSource] breeds in
+                dataSource.modelsSetter(breeds)
             })
             .disposed(by: disposeBag)
     }
 
-    private func imageCellConfigurator(cell: ImageTableViewCell, link: URL) {
-        cell.imageImageView.kf.setImage(with: link)
+    private func imageCellConfigurator(cell: UITableViewCell, favoriteBreed: FavoriteBreed) {
+        cell.textLabel?.text = favoriteBreed.name
     }
 }

@@ -11,7 +11,7 @@ final class Coordinator {
 
     private var breedsViewController: BreedsViewController?
     private let breedsGateway: BreedsGateway
-    private let favoriteBreedsRepository: FavoriteBreedsRepository
+    private let favoriteBreedsRepository: FavoriteBreedsStore
 
     private let imagesGatewayFactory: ImagesGatewayFactory
 
@@ -21,7 +21,7 @@ final class Coordinator {
          breedsViewControllerBuilder: @escaping BreedsViewController.Builder = BreedsViewController.init,
          imagesViewControllerBuilder: @escaping ImagesViewController.Builder = ImagesViewController.init,
          breedsGateway: BreedsGateway = CacheHttpGetGateway<Breeds>(endpoint: .breeds),
-         favoriteBreedsRepository: FavoriteBreedsRepository = UserDefaultsRepository<FavoriteBreeds>(),
+         favoriteBreedsRepository: FavoriteBreedsStore = UserDefaultsStore<FavoriteBreeds>(),
          imagesGatewayFactory: ImagesGatewayFactory = DefaultImagesGatewayFactory()) {
         self.window = window
         self.breedsViewControllerBuilder = breedsViewControllerBuilder

@@ -2,9 +2,8 @@ import UIKit
 import RxSwift
 
 final class BreedsViewController: ViewController {
-    typealias Builder = (BreedsGateway, FavoriteBreedsRepository) -> BreedsViewController
+    typealias Builder = (BreedsGateway, FavoriteBreedsStore) -> BreedsViewController
 
-    private let disposeBag = DisposeBag()
     private let tableView = UITableView()
     private let gateway: BreedsGateway
 
@@ -18,7 +17,7 @@ final class BreedsViewController: ViewController {
     }
 
     init(gateway: BreedsGateway = HttpGetGateway<Breeds>(endpoint: .breeds),
-         favoriteBreedsRepository: FavoriteBreedsRepository = UserDefaultsRepository<FavoriteBreeds>()) {
+         favoriteBreedsRepository: FavoriteBreedsStore = UserDefaultsStore<FavoriteBreeds>()) {
         self.gateway = gateway
         super.init()
     }
