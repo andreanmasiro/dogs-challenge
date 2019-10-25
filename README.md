@@ -1,8 +1,8 @@
-## Dogs Challenge
+## Dogs App
 
-This repository contains the code for the Shaw and Partners iOS challenge.
+This repository contains an example of a simple and scalable architecture. 
 
-I wrote it with a simple but scalable architecture, where I have a few components:
+### Components
 
 * Client: Responsible for talking with external http server
 * Gateway: Responsible for fetching domain data
