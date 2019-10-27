@@ -1,39 +1,41 @@
 PODS:
-  - Kingfisher (5.0.0)
-  - Nimble (7.3.1)
-  - RxAtomic (4.4.0)
-  - RxBlocking (4.4.0):
-    - RxAtomic (~> 4.4)
-    - RxSwift (~> 4.0)
-  - RxCocoa (4.4.0):
-    - RxSwift (~> 4.0)
-  - RxSwift (4.4.0):
-    - RxAtomic (~> 4.4)
+  - Kingfisher (5.9.0):
+    - Kingfisher/Core (= 5.9.0)
+  - Kingfisher/Core (5.9.0)
+  - Nimble (8.0.4)
+  - RxBlocking (5.0.1):
+    - RxSwift (~> 5)
+  - RxCocoa (5.0.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.1)
 
 DEPENDENCIES:
-  - Kingfisher (= 5.0.0)
-  - Nimble (= 7.3.1)
-  - RxBlocking (= 4.4.0)
-  - RxCocoa (= 4.4.0)
-  - RxSwift (= 4.4.0)
+  - Kingfisher (= 5.9.0)
+  - Nimble (= 8.0.4)
+  - RxBlocking (= 5.0.1)
+  - RxCocoa (= 5.0.1)
+  - RxSwift (= 5.0.1)
 
 SPEC REPOS:
   trunk:
     - Kingfisher
     - Nimble
-    - RxAtomic
     - RxBlocking
     - RxCocoa
+    - RxRelay
     - RxSwift
 
 SPEC CHECKSUMS:
-  Kingfisher: 2b0dd651e4fe5a07305b8242fde56f8e2d410f58
-  Nimble: 04f732da099ea4d153122aec8c2a88fd0c7219ae
-  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
-  RxBlocking: 138ad53217434444d6eeeb4fb406a45431d92e31
-  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
-  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  Kingfisher: ff98240aebb7302bdc4f1ecd701761030ce18b16
+  Nimble: 18d5360282923225d62b09d781f63abc1a0111fc
+  RxBlocking: c5e090f42d046df8b0e7752742510f349963710f
+  RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
+  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
 
-PODFILE CHECKSUM: 144a7e5d97fa7eb337bfddc1fb33999c65cedcd3
+PODFILE CHECKSUM: d59365d83a398c012a7fffe596f4f08730afe922
 
 COCOAPODS: 1.8.4

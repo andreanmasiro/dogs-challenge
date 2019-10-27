@@ -13,7 +13,7 @@ final class BreedsViewControllerTests: XCTestCase {
     override func setUp() {
         gateway = MockBreedsGateway()
         gateway.getStub = .just([])
-        viewController = BreedsViewController(gateway: gateway)
+        viewController = BreedsViewController(gateway: gateway, favoriteBreedsInteractor: MockFavoriteBreedsInteractor())
     }
 
     func testWhenViewIsLoadedItSubscribesToGatewayGet() {
@@ -31,7 +31,7 @@ final class BreedsViewControllerTests: XCTestCase {
 
     func testWhenLoadingItHidesTableView() {
         gateway.getStub = .never()
-        viewController = BreedsViewController(gateway: gateway)
+        viewController = BreedsViewController(gateway: gateway, favoriteBreedsInteractor: MockFavoriteBreedsInteractor())
         viewController.setState(.loading)
 
         expect(self.viewController.view.breadthFirstSearch(viewOfType: UITableView.self)?.isHidden) == true
