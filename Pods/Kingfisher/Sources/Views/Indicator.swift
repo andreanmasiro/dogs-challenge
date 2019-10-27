@@ -4,7 +4,7 @@
 //
 //  Created by João D. Moreira on 30/08/16.
 //
-//  Copyright (c) 2018 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2019 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,9 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#if canImport(AppKit)
+#if !os(watchOS)
+
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
 public typealias IndicatorView = NSView
 #else
@@ -50,8 +52,6 @@ public enum IndicatorType {
     case custom(indicator: Indicator)
 }
 
-// MARK: - Indicator Protocol
-
 /// An indicator type which can be used to show the download task is in progress.
 public protocol Indicator {
     
@@ -76,7 +76,6 @@ extension Indicator {
     public var centerOffset: CGPoint { return .zero }
 }
 
-// MARK: - ActivityIndicator
 // Displays a NSProgressIndicator / UIActivityIndicatorView
 final class ActivityIndicator: Indicator {
 
@@ -121,11 +120,22 @@ final class ActivityIndicator: Indicator {
             activityIndicatorView.controlSize = .small
             activityIndicatorView.style = .spinning
         #else
+            let indicatorStyle: UIActivityIndicatorView.Style
+
             #if os(tvOS)
-                let indicatorStyle = UIActivityIndicatorView.Style.white
+            if #available(tvOS 13.0, *) {
+                indicatorStyle = UIActivityIndicatorView.Style.large
+            } else {
+                indicatorStyle = UIActivityIndicatorView.Style.white
+            }
             #else
-                let indicatorStyle = UIActivityIndicatorView.Style.gray
+            if #available(iOS 13.0, * ) {
+                indicatorStyle = UIActivityIndicatorView.Style.medium
+            } else {
+                indicatorStyle = UIActivityIndicatorView.Style.gray
+            }
             #endif
+
             #if swift(>=4.2)
             activityIndicatorView = UIActivityIndicatorView(style: indicatorStyle)
             #else
@@ -135,10 +145,22 @@ final class ActivityIndicator: Indicator {
     }
 }
 
+#if canImport(UIKit)
+extension UIActivityIndicatorView.Style {
+    #if compiler(>=5.1)
+    #else
+    static let large = UIActivityIndicatorView.Style.white
+    #if !os(tvOS)
+    static let medium = UIActivityIndicatorView.Style.gray
+    #endif
+    #endif
+}
+#endif
+
 // MARK: - ImageIndicator
 // Displays an ImageView. Supports gif
 final class ImageIndicator: Indicator {
-    private let animatedImageIndicatorView: ImageView
+    private let animatedImageIndicatorView: KFCrossPlatformImageView
 
     var view: IndicatorView {
         return animatedImageIndicatorView
@@ -159,7 +181,7 @@ final class ImageIndicator: Indicator {
             return nil
         }
 
-        animatedImageIndicatorView = ImageView()
+        animatedImageIndicatorView = KFCrossPlatformImageView()
         animatedImageIndicatorView.image = image
         
         #if os(macOS)
@@ -189,3 +211,5 @@ final class ImageIndicator: Indicator {
         animatedImageIndicatorView.isHidden = true
     }
 }
+
+#endif

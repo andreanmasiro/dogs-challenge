@@ -2,7 +2,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-extension Observable where E == (response: HTTPURLResponse, data: Data) {
+extension Observable where Element == (response: HTTPURLResponse, data: Data) {
     func validate(statusCodes: Range<Int>) -> Observable<Data> {
         return self.map {
             let statusCode = $0.response.statusCode
@@ -15,7 +15,7 @@ extension Observable where E == (response: HTTPURLResponse, data: Data) {
     }
 }
 
-extension Observable where E == Data {
+extension Observable where Element == Data {
     func mapDecodable<T: Decodable>(_: T.Type, jsonDecoder: JSONDecoder = .init()) -> Observable<T> {
         return map {
             return try jsonDecoder.decode(T.self, from: $0)
@@ -23,7 +23,7 @@ extension Observable where E == Data {
     }
 }
 
-extension PrimitiveSequence where Trait == MaybeTrait, E == Data {
+extension PrimitiveSequence where Trait == MaybeTrait, Element == Data {
     func mapDecodable<T: Decodable>(_: T.Type, jsonDecoder: JSONDecoder = .init()) -> Maybe<T> {
         return map {
             return try jsonDecoder.decode(T.self, from: $0)
@@ -40,7 +40,7 @@ extension PrimitiveSequence where Trait == SingleTrait {
 }
 
 extension ObservableType {
-    func unwrap<T>() -> Observable<T> where E == T? {
+    func unwrap<T>() -> Observable<T> where Element == T? {
         return self.filter { $0 != nil }.map { $0! }
     }
 }
