@@ -18,7 +18,7 @@ DEPENDENCIES:
   - RxSwift (= 4.4.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Kingfisher
     - Nimble
     - RxAtomic
@@ -36,4 +36,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 144a7e5d97fa7eb337bfddc1fb33999c65cedcd3
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.8.4
